@@ -6,10 +6,11 @@ import NightsStaySharpIcon from '@mui/icons-material/NightsStaySharp';
 import ShieldMoonSharpIcon from '@mui/icons-material/ShieldMoonSharp';
 import LensBlurSharpIcon from '@mui/icons-material/LensBlurSharp';
 import NotificationsNoneSharpIcon from '@mui/icons-material/NotificationsNoneSharp';
+import BatLogo from './bat-logo.jsx';
 
 export default function Header() {
     return (
-        <div className="header flex justify-evenly border-b border-zinc-800 w-full py-2 sticky top-0 z-50">
+        <div className="header flex justify-evenly bg-zinc-900 border-b border-zinc-700 w-full py-2 sticky top-0 z-50">
             <div className="header-left flex">
                 <Logo />
                 <div className="header-search p-3 flex items-center bg-zinc-100 shadow-sm rounded-sm h-10">

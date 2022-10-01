@@ -1,14 +1,17 @@
 import Header from './components/Header.jsx'
+import Sidebar from './components/Sidebar.jsx';
 
 export default function App() {
   return (
-    <div className="bg-zinc-900 h-screen">
-      <Header></Header>
+    <div className="bg-black h-screen">
+      <Header />
 
       {/* {App Body} */}
-      {/* {Sidebar} */}
-      {/* {Feed} */}
-      {/* {Widgets} */}
+      <div className="app-body flex flex-col items-center">
+        <Sidebar />
+        {/* {Feed} */}
+        {/* {Widgets} */}
+      </div>
     </div>
   );
 }
