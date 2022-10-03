@@ -1,11 +1,17 @@
 import { Avatar } from '@mui/material';
 
 export default function Sidebar() {
+    const recentItem = (topic) => (
+        <div className="sidebar-recent-item text-sm text-zinc-400 flex items-center pl-1 cursor-pointer hover:bg-rose-400 hover:text-zinc-800 hover:font-semibold hover:rounded-sm">
+            <span className="sidebar-hash text-lg font-semibold">#</span>
+            <p className='ml-1'>{topic}</p>
+        </div>
+    )
     return (
         <div className="sidebar top-20 sticky rounded-md w-1/5 text-center h-fit">
             <div className="sidebar-top bg-zinc-900 flex flex-col items-center border border-zinc-700 border-b-0 rounded-t-md pb-2">
                 <img src="src/assets/bg-castle-img.jpeg" alt="Background Image" className='object-cover h-20 rounded-md w-full -mb-8' />
-                <Avatar className='sidebar-avatar mb-2 mt-3' />
+                <Avatar sx={{ height: 80, width: 80 }} src="https://miro.medium.com/max/1400/1*almKrH_2LcQhOHRFYV-AMg.jpeg" className='sidebar-avatar mb-2 mt-3' />
                 <h2 className="text-xl font-semibold text-zinc-300">Valek Aleistayne</h2>
                 <h4 className="text-lg text-zinc-400">coachferatu@vampz.io</h4>
             </div>
@@ -19,8 +25,13 @@ export default function Sidebar() {
                     <p className="sidebar-stat-number text-sm text-rose-400">10,387</p>
                 </div>
             </div>
-            <div className="sidebar-bottom">
-                <p className='text-sm text-zinc-400 font-semibold'>Recent</p>
+            <div className="sidebar-bottom bg-zinc-900 text-left p-3 border border-zinc-700 rounded-md mt-3">
+                <p className='text-sm text-zinc-400 font-semibold mb-2'>Recent</p>
+                {recentItem('darkbiddingonebay')}
+                {recentItem('werewolvesofinstagram')}
+                {recentItem('vladsdishes')}
+                {recentItem('catvids')}
+                {recentItem('haxanforyou')}
             </div>
         </div>
     )
