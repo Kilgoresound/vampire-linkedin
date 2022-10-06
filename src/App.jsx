@@ -4,7 +4,7 @@ import Feed from './components/Feed.jsx';
 
 export default function App() {
   return (
-    <div className="bg-black h-screen">
+    <div className="bg-black h-full">
       <Header />
 
       {/* {App Body} */}

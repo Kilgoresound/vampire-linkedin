@@ -7,7 +7,7 @@ import SendSharpIcon from '@mui/icons-material/SendSharp';
 
 export default function Post({ name, description, message, photoURL }) {
     return (
-        <div className="post bg-zinc-900 p-5 border border-zinc-700 rounded-md">
+        <div className="post bg-zinc-900 p-5 border mt-3 border-zinc-700 rounded-md">
             <div className="post-header flex mb-3">
                 <Avatar src={photoURL} />
                 <div className="post-info ml-3">
@@ -17,9 +17,9 @@ export default function Post({ name, description, message, photoURL }) {
             </div>
 
             <div className="post-body">
-                <p className='text-sm text-zinc-200 line-clamp-2'>{message}</p>
+                <p className='text-sm text-zinc-200 line-clamp-3'>{message}</p>
             </div>
-            <div className="post-buttons flex ">
+            <div className="post-buttons flex justify-evenly">
                 <InputOptions Icon={ThumbUpSharpIcon} title="Like" color="#881337" />
                 <InputOptions Icon={InsertCommentSharpIcon} title="Comment" color="#881337" />
                 <InputOptions Icon={ShareSharpIcon} title="Share" color="#881337" />
