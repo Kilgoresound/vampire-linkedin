@@ -1,23 +1,20 @@
 import CreateSharpIcon from '@mui/icons-material/CreateSharp';
-
-import InputOptions from './InputOptions';
 import ImageSharpIcon from '@mui/icons-material/ImageSharp';
 import MovieCreationSharpIcon from '@mui/icons-material/MovieCreationSharp';
 import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp';
 import NewspaperSharpIcon from '@mui/icons-material/NewspaperSharp';
-import Post from './Post';
-import { useState } from 'react';
-import { db } from '../firebase';
-import { useEffect } from 'react';
-import { collection, doc, setDoc, onSnapshot, updateDoc, serverTimestamp, query, orderBy } from "firebase/firestore";
 
-// import { firebase } from 'firebase';
+import InputOptions from './InputOptions';
+import Post from './Post';
+
+import { useState, useEffect } from 'react';
+import { db } from '../firebase';
+import { collection, doc, setDoc, onSnapshot, updateDoc, serverTimestamp, query, orderBy } from "firebase/firestore";
 
 
 export default function Feed() {
     const [input, setInput] = useState('');
     const [posts, setPosts] = useState([]);
-
 
     useEffect(() => {
         const post = onSnapshot(
@@ -51,7 +48,7 @@ export default function Feed() {
     }
 
     return (
-        <div className="feed w-3/5 h-full ">
+        <div className="feed w-3/5 h-full mt-4">
             <div className="feed-input-container bg-zinc-900 p-5 border border-zinc-700 rounded-md">
                 <div className="feed-input">
                     <form action="">
@@ -73,12 +70,9 @@ export default function Feed() {
                                 onClick={sendPost}
                                 className="relative -ml-px inline-flex items-center space-x-2 rounded-r-2xl border border-zinc-300 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100 focus:border-rose-500 focus:outline-none focus:ring-1 focus:ring-rose-500"
                             >
-                                {/* <BarsArrowUpIcon className="h-5 w-5 text-gray-400" aria-hidden="true" /> */}
                                 <span>Submit</span>
                             </button>
                         </div>
-
-
                     </form>
                 </div>
                 <div className="feed-input-options flex justify-evenly">
@@ -98,7 +92,6 @@ export default function Feed() {
 
                 />
             ))}
-            {/* <Post name="Valek Aleistayne" description="Coach Feratu" message="Your Precious Blood! Let us chat together a moment, my friend! There are still several hours until dawn, and I have the whole day to sleep. There is no life in this body. I am nothing, lifeless, soulless, hated and feared. I am dead to all the world - hear me! I am the monster that breathing men would kill." photoURL="https://miro.medium.com/max/1400/1*almKrH_2LcQhOHRFYV-AMg.jpeg" /> */}
         </div>
     )
 }
