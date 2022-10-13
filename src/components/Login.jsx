@@ -47,7 +47,7 @@ export default function Login() {
             }).catch(error => alert(error))
     };
     return (
-        <div className="login flex min-h-full">
+        <div className="login flex h-screen">
             <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
                 <div className="mx-auto w-full max-w-sm lg:w-96">
                     <div>
