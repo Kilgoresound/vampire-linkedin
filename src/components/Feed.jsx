@@ -4,15 +4,22 @@ import MovieCreationSharpIcon from '@mui/icons-material/MovieCreationSharp';
 import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp';
 import NewspaperSharpIcon from '@mui/icons-material/NewspaperSharp';
 
+import FlipMove from 'react-flip-move';
+
 import InputOptions from './InputOptions';
 import Post from './Post';
 
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 import { db } from '../firebase';
 import { collection, doc, setDoc, onSnapshot, updateDoc, serverTimestamp, query, orderBy } from "firebase/firestore";
 
 
 export default function Feed() {
+    const currentUser = useSelector((state) => state.user.user)
+    console.log(currentUser)
+
     const [input, setInput] = useState('');
     const [posts, setPosts] = useState([]);
 
@@ -36,10 +43,10 @@ export default function Feed() {
         e.preventDefault();
         setDoc(newPostRef,
             {
-                name: 'Valek Aleistayne',
-                description: 'Coachferatu',
+                name: currentUser.displayName,
+                description: currentUser.email,
                 message: input,
-                photoURL: 'https://miro.medium.com/max/1400/1*almKrH_2LcQhOHRFYV-AMg.jpeg',
+                photoURL: currentUser.photoURL,
                 timestamp: serverTimestamp(),
             }
         );
@@ -48,7 +55,7 @@ export default function Feed() {
     }
 
     return (
-        <div className="feed w-3/5 h-full mt-4">
+        <div className="feed w-2/5 h-full mx-7">
             <div className="feed-input-container bg-zinc-900 p-5 border border-zinc-700 rounded-md">
                 <div className="feed-input">
                     <form action="">
@@ -82,16 +89,18 @@ export default function Feed() {
                     <InputOptions Icon={NewspaperSharpIcon} title="Write Article" color="#c026d3" />
                 </div>
             </div>
-            {posts.map(({ id, data: { name, description, message, photoURL } }) => (
-                <Post
-                    key={id}
-                    name={name}
-                    description={description}
-                    message={message}
-                    photoURL={photoURL}
+            <FlipMove>
+                {posts.map(({ id, data: { name, description, message, photoURL } }) => (
+                    <Post
+                        key={id}
+                        name={name}
+                        description={description}
+                        message={message}
+                        photoURL={photoURL}
 
-                />
-            ))}
+                    />
+                ))}
+            </FlipMove>
         </div>
     )
 }

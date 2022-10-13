@@ -4,12 +4,13 @@ import ThumbUpSharpIcon from '@mui/icons-material/ThumbUpSharp';
 import InsertCommentSharpIcon from '@mui/icons-material/InsertCommentSharp';
 import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 import SendSharpIcon from '@mui/icons-material/SendSharp';
+import { forwardRef } from 'react';
 
-export default function Post({ name, description, message, photoURL }) {
+const Post = forwardRef(({ name, description, message, photoURL }, ref) => {
     return (
-        <div className="post bg-zinc-900 p-5 border mt-3 border-zinc-700 rounded-md">
+        <div ref={ref} className="post bg-zinc-900 p-5 border mt-3 border-zinc-700 rounded-md">
             <div className="post-header flex mb-3">
-                <Avatar src={photoURL} />
+                <Avatar src={photoURL}>{name[0]}</Avatar>
                 <div className="post-info ml-3">
                     <h2 className='font-bold text-sm text-zinc-200'>{name}</h2>
                     <p className='text-xs text-zinc-400'>{description}</p>
@@ -27,4 +28,6 @@ export default function Post({ name, description, message, photoURL }) {
             </div>
         </div>
     )
-}
+})
+
+export default Post;

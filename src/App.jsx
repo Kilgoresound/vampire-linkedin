@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { login, logout } from './features/userSlice.js';
+// import { Widgets } from '@mui/icons-material';
+import Widgets from './components/Widgets.jsx';
 
 export default function App() {
   const currentUser = useSelector((state) => state.user.user)
@@ -31,9 +33,10 @@ export default function App() {
     <div className="bg-black h-full">
       {!currentUser ? ("") : (<Header />)}
       {!currentUser ? (<Login />) : (
-        <div className="app-body flex justify-around">
+        <div className="app-body flex mt-9 max-w-full mx-6 justify-evenly">
           <Sidebar />
           <Feed />
+          <Widgets />
           {/* {Widgets} */}
         </div>
       )
