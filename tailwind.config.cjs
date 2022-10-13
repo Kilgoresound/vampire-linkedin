@@ -7,7 +7,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        fang: "itc-benguiat-condensed, sans-serif"
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

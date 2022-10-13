@@ -1,12 +1,12 @@
-export default function Logo() {
+export default function Logo({ size }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#be123c"
             stroke="currentColor"
             viewBox="483.92 843.82 3213.31 2511.5"
-            height={44}
-            width={44}
+            height={size}
+            width={size}
             className="mr-3"
         >
             <g id="sign">

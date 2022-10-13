@@ -1,6 +1,9 @@
 import { Avatar } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 export default function Sidebar() {
+    const user = useSelector((state) => state.user.user)
+    console.log(user);
     const recentItem = (topic) => (
         <div className="sidebar-recent-item text-sm text-zinc-400 flex items-center pl-1 cursor-pointer hover:bg-rose-400 hover:text-zinc-800 hover:font-semibold hover:rounded-sm">
             <span className="sidebar-hash text-lg font-semibold">#</span>
@@ -11,9 +14,9 @@ export default function Sidebar() {
         <div className="sidebar top-20 sticky rounded-md w-1/5 text-center h-fit">
             <div className="sidebar-top bg-zinc-900 flex flex-col items-center border border-zinc-700 border-b-0 rounded-t-md pb-2">
                 <img src="src/assets/bg-castle-img.jpeg" alt="Background Image" className='object-cover h-20 rounded-md w-full -mb-8' />
-                <Avatar sx={{ height: 80, width: 80 }} src="https://miro.medium.com/max/1400/1*almKrH_2LcQhOHRFYV-AMg.jpeg" className='sidebar-avatar mb-2 mt-3' />
-                <h2 className="text-xl font-semibold text-zinc-300">Valek Aleistayne</h2>
-                <h4 className="text-lg text-zinc-400">coachferatu@vampz.io</h4>
+                <Avatar sx={{ height: 80, width: 80 }} src={user.photoURL} className='sidebar-avatar mb-2 mt-3' />
+                <h2 className="text-xl font-semibold text-zinc-300">{user.displayName}</h2>
+                <h4 className="text-lg text-zinc-400">{user.email}</h4>
             </div>
             <div className="sidebar-stats bg-zinc-900 p-3 mb-3 border border-zinc-700 rounded-b-md">
                 <div className="sidebar-stat mt-2 flex justify-between">
