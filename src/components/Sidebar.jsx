@@ -13,7 +13,9 @@ export default function Sidebar() {
     return (
         <div className="sidebar top-20 sticky rounded-md w-1/5 text-center h-fit">
             <div className="sidebar-top bg-zinc-900 flex flex-col items-center border border-zinc-700 border-b-0 rounded-t-md pb-2">
-                <img src="src/assets/bg-castle-img.jpeg" alt="Background Image" className='object-cover h-20 rounded-md w-full -mb-8' />
+                <img src="https://media.istockphoto.com/photos/old-castle-picture-id155382004?k=20&m=155382004&s=612x612&w=0&h=oobfZ0NTskpoAeALjRaaWjpmH_EshDofrX6_tc6Yhuw="
+                    alt="Background Image"
+                    className='object-cover h-20 rounded-md w-full -mb-8' />
                 <Avatar sx={{ height: 80, width: 80 }} src={user.photoURL} className='sidebar-avatar mb-2 mt-3 border-2 border-zinc-900' />
                 <h2 className="text-xl font-semibold text-zinc-300">{user.displayName}</h2>
                 <h4 className="text-lg text-zinc-400">{user.email}</h4>

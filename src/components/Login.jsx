@@ -4,6 +4,7 @@ import { auth } from '../firebase.js';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { login } from '../features/userSlice';
+import BatLogo from './bat-logo';
 
 
 export default function Login() {
@@ -234,11 +235,12 @@ export default function Login() {
                 </div>
             </div>
             <div className="relative hidden w-0 flex-1 lg:block">
-                <img
+                {/* <img
                     className="absolute inset-0 h-full w-full object-cover bg-black"
-                    src="src/assets/BatSymbol-trans.svg"
+                    src="/assets/BatSymbol-trans.svg"
                     alt=""
-                />
+                /> */}
+                <BatLogo />
             </div>
         </div>
     )
